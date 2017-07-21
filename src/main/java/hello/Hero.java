@@ -1,6 +1,15 @@
 package hello;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Hero {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	private String name;
 	
@@ -9,9 +18,7 @@ public class Hero {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Hero(long id, String name) {
-		super();
-		this.id = id;
+	public Hero(String name) {
 		this.name = name;
 	}
 	
@@ -27,5 +34,12 @@ public class Hero {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return "Hero [id=" + id + ", name=" + name + "]";
+	}
+
+	
 	
 }
